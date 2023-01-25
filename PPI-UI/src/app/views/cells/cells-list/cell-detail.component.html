@@ -1,0 +1,27 @@
+<div class="card"
+     *ngIf="cell$ | async as cell">
+  <div class="card-header">
+    {{ pageTitle }}
+  </div>
+
+  <div class="card-body">
+    <div class="row">
+      <div class="col-md-2">Cancer type:</div>
+      <div class="col-md-6">{{ cell.name }}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">Cell line:</div>
+      <div class="col-md-6">{{ cell.display_name }}</div>
+    </div>
+    <div class="row">
+      <div class="col-md-2">Cancer name:</div>
+      <div class="col-md-6">{{ cell.cancerType }}</div>
+    </div>
+  </div>
+ 
+</div>
+
+<div class="alert alert-danger"
+     *ngIf="errorMessage">
+  {{ errorMessage }}
+</div>

@@ -1,0 +1,23 @@
+<div class="card">
+  <div class="card-header">
+    {{ pageTitle }}
+  </div>
+
+  <div class="card-body"
+       *ngIf="cells$ | async as cells">
+    <div class="list-group">
+      <button type="button"
+              class="list-group-item list-group-item-action list-group-item-light"
+              *ngFor="let cell of cells"
+              [ngClass]="{ active: cell?.id === (selectedCell$ | async)?.id }"
+              (click)="onSelected(cell.id)" >
+        {{ cell.cancerType }} ({{ cell.display_name }})
+      </button>
+    </div>
+  </div>
+</div>
+
+<div class="alert alert-danger"
+     *ngIf="errorMessage$ | async as errorMessage">
+  {{ errorMessage }}
+</div>

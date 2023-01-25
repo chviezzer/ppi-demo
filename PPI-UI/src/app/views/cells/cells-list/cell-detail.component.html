@@ -11,17 +11,39 @@
     </div>
     <div class="row">
       <div class="col-md-2">Cell line:</div>
-      <div class="col-md-6">{{ cell.display_name }}</div>
+      <div class="col-md-6">{{ cell.displayName }}</div>
     </div>
     <div class="row">
       <div class="col-md-2">Cancer name:</div>
       <div class="col-md-6">{{ cell.cancerType }}</div>
     </div>
   </div>
- 
 </div>
 
+<div class="table-responsive" *ngIf="genesBarChart$ | async as genes">
+  <table class="table mb-0" *ngIf="genes.length; else noGenes ">
+    <thead>
+      <tr>
+        <th>Gene</th>
+        <th>log2 value</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let gene of genes">
+        <td>{{ gene.name }}</td>
+        <td>{{ gene.value }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+<ng-template #noGenes>
+  <div class="alert alert-warning">
+    No data for this cells
+  </div>
+</ng-template>
+
+
 <div class="alert alert-danger"
-     *ngIf="errorMessage">
-  {{ errorMessage }}
+*ngIf="errorMessage$ | async as errorMessage">
+{{ errorMessage }}
 </div>

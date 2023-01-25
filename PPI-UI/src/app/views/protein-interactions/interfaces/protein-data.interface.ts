@@ -1,4 +1,4 @@
-import { Sequence } from 'src/app/services/protein-data/protein-info.interface';
+import { Sequence } from './protein-info.interface';
 
 /* Defines the pdbdata entity */
 export interface Proteins {

@@ -1,6 +1,6 @@
 /* eslint-disable @angular-eslint/component-selector */
 import { ChangeDetectionStrategy, Component } from '@angular/core';
-import { catchError, EMPTY } from 'rxjs';
+import { catchError, EMPTY, Subject } from 'rxjs';
 
 import { CellService } from '../../../services/cells/cell.service';
 
@@ -11,13 +11,21 @@ import { CellService } from '../../../services/cells/cell.service';
 })
 export class CellDetailComponent {
   pageTitle = 'Cell Detail';
-  errorMessage = '';
+  private errorMessageSubject = new Subject<string>();
+  errorMessage$ = this.errorMessageSubject.asObservable();
 
   constructor(private cellService: CellService) {}
 
   cell$ = this.cellService.selectedCell$.pipe(
     catchError((err) => {
-      this.errorMessage = err;
+      this.errorMessageSubject.next(err);
+      return EMPTY;
+    })
+  );
+
+  genesBarChart$ = this.cellService.selectedCellGenes$.pipe(
+    catchError((err) => {
+      this.errorMessageSubject.next(err);
       return EMPTY;
     })
   );

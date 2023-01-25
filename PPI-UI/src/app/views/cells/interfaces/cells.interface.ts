@@ -2,9 +2,10 @@
 export interface CellLine {
   id: number;
   name: string;
-  display_name: string;
-  depmap_id: number;
+  displayName: string;
+  depmapId?: number;
   cancerTypeId?: number;
   cancerType?: string;
+  geneIds: number[];
   searchKey?: string[];
 }

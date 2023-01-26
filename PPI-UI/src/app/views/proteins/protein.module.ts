@@ -3,7 +3,8 @@ import { RouterModule } from '@angular/router';
 import { ReactiveFormsModule } from '@angular/forms';
 
 import { SharedModule } from 'src/app/shared/shared.module';
-import { ProteinInteractionsComponent } from './protein-interaction.component';
+import { ProteinInteractionsComponent } from './protein-interaction/protein-interaction.component';
+import { ProteinComponent } from './protein.component';
 
 @NgModule({
   imports: [
@@ -12,10 +13,14 @@ import { ProteinInteractionsComponent } from './protein-interaction.component';
     RouterModule.forChild([
       {
         path: '',
+        component: ProteinComponent,
+      },
+      {
+        path: 'interactions',
         component: ProteinInteractionsComponent,
       },
     ]),
   ],
-  declarations: [ProteinInteractionsComponent],
+  declarations: [ProteinInteractionsComponent, ProteinComponent],
 })
 export class ProteinModule {}

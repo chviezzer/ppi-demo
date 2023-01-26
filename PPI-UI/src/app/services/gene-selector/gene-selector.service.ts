@@ -13,7 +13,7 @@ export class GeneSelectorService {
   constructor(private http: HttpClient) {}
 
   geneSelectorChart$ = this.http.get<BarGeneChart[]>(this.genesUrl).pipe(
-    tap((data) => console.log('suppliers', JSON.stringify(data))),
+    tap((data) => console.log('genes', JSON.stringify(data))),
     shareReplay(1),
     catchError(this.handleError)
   );

@@ -54,7 +54,8 @@ export class CellService {
             searchKey: [cell.name],
           } as CellLine)
       )
-    )
+    ),
+    shareReplay(1)
   );
 
   selectedCell$ = combineLatest([

@@ -1,21 +1,22 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-
-import { throwError, Observable, catchError, tap } from 'rxjs';
-
-import { CancerType } from './interfaces/cancer-type.interface';
+import { throwError, Observable, catchError, tap, shareReplay } from 'rxjs';
+import { ProteinsInteraction } from 'src/app/views/proteins/interfaces/protein-data.interface';
 
 @Injectable({
   providedIn: 'root',
 })
-export class CancerTypeService {
-  private cancerUrl = 'api/cancer';
+export class InteractionService {
+  private interactionUrl = 'api/interaction';
   constructor(private http: HttpClient) {}
 
-  cancerTypes$ = this.http.get<CancerType[]>(this.cancerUrl).pipe(
-    // tap((data) => console.log('Cells: ', JSON.stringify(data))),  #for debug.
-    catchError(this.handleError)
-  );
+  interactions$ = this.http
+    .get<ProteinsInteraction[]>(this.interactionUrl)
+    .pipe(
+      tap((data) => console.log('interactions: ', JSON.stringify(data))),
+      shareReplay(1),
+      catchError(this.handleError)
+    );
 
   private handleError(err: HttpErrorResponse): Observable<never> {
     let errorMessage: string;

@@ -4,32 +4,32 @@ import { CancerType } from '../services/cancer-type/interfaces/cancer-type.inter
 import { CellSelectorData } from './cell/cells-data';
 import { CellLine } from '../views/cells/interfaces/cells.interface';
 import { CancerTypeData } from './cancer/cancer-type-data';
-import { Proteins } from '../views/protein-interactions/interfaces/protein-data.interface';
-import { ProteinInfo } from '../views/protein-interactions/interfaces/protein-info.interface';
-import { ProteinInfoData } from './protein/protein-info';
-import { ProteinData } from './protein/protein-data';
 import { BarGeneChart } from '../views/cells/interfaces/gene-selector.interface';
 import { GeneData } from './gene-selector/gene-data';
+import { ProteinInteraction } from './protein/protein-interaction';
+import { ProteinData } from './protein/protein';
+import { ProteinsInteraction } from '../views/proteins/interfaces/protein-data.interface';
+import { Protein } from '../views/proteins/interfaces/protein-info.interface';
 
 export class AppData implements InMemoryDbService {
   createDb(): {
     cells: CellLine[];
-    cancerType: CancerType[];
-    proteins: Proteins[];
-    proteinInfo: ProteinInfo[];
+    cancer: CancerType[];
+    interaction: ProteinsInteraction[];
+    proteins: Protein[];
     genes: BarGeneChart[];
   } {
     const cells = CellSelectorData.cells;
-    const cancerType = CancerTypeData.cancerType;
+    const cancer = CancerTypeData.cancerType;
     const protein = ProteinData.protein;
-    const proteinInfo = ProteinInfoData.proteinInfo;
-    const geneSelector = GeneData.genes;
+    const interaction = ProteinInteraction.interaction;
+    const genes = GeneData.genes;
     return {
       cells: cells,
-      cancerType: cancerType,
+      cancer: cancer,
       proteins: protein,
-      proteinInfo: proteinInfo,
-      genes: geneSelector,
+      interaction: interaction,
+      genes: genes,
     };
   }
 }

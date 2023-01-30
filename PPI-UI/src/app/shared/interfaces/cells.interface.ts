@@ -1,4 +1,4 @@
-/* Defines the cell_selector entity */
+/** defines the cell_selector entity */
 export interface CellLine {
   id: number;
   name: string;

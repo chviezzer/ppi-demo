@@ -1,0 +1,13 @@
+import { Protein } from 'src/app/shared/interfaces/protein-info.interface';
+
+export class ProteinData {
+  static protein: Protein[] = [
+    {
+      accession: 'O43657',
+      protein: 'Tetraspanin-6',
+      gene: 'TSPAN6',
+      sequence:
+        'MASPSRRLQTKPVITCFKSVLLIYTFIFWITGVILLAVGIWGKVSLENYFSLLNEKATNVPFVLIATGTVIILLGTFGCFATCRASAWMLKLYAMFLTLVFLVELVAAIVGFVFRHEIKNSFKNNYEKALKQYNSTGDYRSHAVDKIQNTLHCCGVTDYRDWTDTNYYSEKGFPKSCCKLEDCTPQRDADKVNNEGCFIKVMTIIESEMGVVAGISFGVACFQLIGIFLAYCLSRAITNNQYEIV',
+    },
+  ];
+}

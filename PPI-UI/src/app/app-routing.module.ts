@@ -16,7 +16,7 @@ import { PageNotFoundComponent } from './page-not-found.component';
       {
         path: 'proteins',
         loadChildren: () =>
-          import('./views/protein-interactions/protein.module').then(
+          import('./views/proteins/protein.module').then(
             (m) => m.ProteinModule
           ),
       },

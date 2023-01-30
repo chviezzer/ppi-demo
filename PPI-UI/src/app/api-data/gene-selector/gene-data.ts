@@ -1,4 +1,4 @@
-import { BarGeneChart } from 'src/app/views/cells/interfaces/gene-selector.interface';
+import { BarGeneChart } from 'src/app/shared/interfaces/gene-selector.interface';
 
 export class GeneData {
   static genes: BarGeneChart[] = [

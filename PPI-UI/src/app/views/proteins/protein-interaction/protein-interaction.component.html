@@ -1,0 +1,18 @@
+<div class="card-body" *ngIf="interactions$ |async as ppi">
+    <div class="table-responsive">
+        <table class="table mb0">
+            <thead>
+                <tr>
+                    <th>Interactor</th>
+                    <th>Accession</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let interaction of ppi[0].interactions">
+                    <td>{{interaction.gene}}</td>
+                    <td>{{interaction.accession2}}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

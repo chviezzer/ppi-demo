@@ -1,22 +1,22 @@
-import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
-
-import { throwError, Observable, shareReplay, tap, catchError } from 'rxjs';
-import { BarGeneChart } from 'src/app/shared/interfaces/gene-selector.interface';
+import { Injectable } from '@angular/core';
+import { throwError, Observable, catchError, tap, shareReplay } from 'rxjs';
+import { ProteinsInteraction } from 'src/app/shared/interfaces/protein-data.interface';
  
 @Injectable({
   providedIn: 'root',
 })
-export class GeneSelectorService {
-  private genesUrl = 'api/genes';
-
+export class InteractionService {
+  private interactionUrl = 'api/interaction';
   constructor(private http: HttpClient) {}
 
-  geneSelectorChart$ = this.http.get<BarGeneChart[]>(this.genesUrl).pipe(
-    tap((data) => console.log('genes', JSON.stringify(data))),
-    shareReplay(1),
-    catchError(this.handleError)
-  );
+  interactions$ = this.http
+    .get<ProteinsInteraction[]>(this.interactionUrl)
+    .pipe(
+      tap((data) => console.log('interactions: ', JSON.stringify(data))),
+      shareReplay(1),
+      catchError(this.handleError)
+    );
 
   private handleError(err: HttpErrorResponse): Observable<never> {
     let errorMessage: string;

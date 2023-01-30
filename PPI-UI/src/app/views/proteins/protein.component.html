@@ -1,0 +1,63 @@
+<div class="card">
+    <div class="card-header">
+        {{sequenceTitle}}
+    </div>
+    <div class="card-body" *ngIf="genesCellsSelector$ | async as genes">
+        <div class="container">
+            <div class="row justify-content-between">
+                <div class="col-3">
+                    <select class="form-control" (change)="onSelected($any($event.target).value)">
+                        <option value="0">- Display All -</option>
+                        <option *ngFor="let gene of genes" [value]="gene.name">{{ gene.name }}
+                        </option>
+                    </select>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn btn-outline-secondary" disabled>
+                        Search Protein
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div *ngIf="proteins$ |async as proteins">
+            <div class="table-responsive">
+                <table class="table mb-0">
+                    <thead>
+                        <tr>
+                            <th>Gene</th>
+                            <th>Protein</th>
+                            <th>Accession</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let protein of proteins">
+                            <td>{{proteins[0].gene}}</td>
+                            <td>{{proteins[0].protein}}</td>
+                            <td>{{proteins[0].accession}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <ppi-interaction></ppi-interaction>
+        <div *ngIf="proteins$ |async as proteins">
+            <div *ngFor="let protein of proteins">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Protein sequence</th>
+                        </tr>
+                    </thead>
+                </table>
+                <div>
+                    {{proteins[0].sequence}}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="alert alert-danger" *ngIf="errorMessage$ | async as errorMessage">
+    {{ errorMessage }}
+</div>

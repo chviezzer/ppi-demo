@@ -5,9 +5,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 Added packages:
 
 - npm install bootstrap
-- npm install @swimlane/ngx-charts
 - npm install angular-in-memory-web-api
-- npm install d3
 - ng add @angular-eslint/schematics
 - npm install eslint-plugin-rxjs --save-dev
 - npm install eslint-plugin-rxjs-angular --save-dev

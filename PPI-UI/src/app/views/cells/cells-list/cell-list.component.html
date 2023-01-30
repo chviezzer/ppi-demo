@@ -11,10 +11,15 @@
               *ngFor="let cell of cells"
               [ngClass]="{ active: cell?.id === (selectedCell$ | async)?.id }"
               (click)="onSelected(cell.id)" >
-        {{ cell.cancerType }} ({{ cell.display_name }})
+        {{ cell.cancerType }} ({{ cell.displayName }})
       </button>
     </div>
   </div>
+</div>
+
+<div *ngIf="onSelected" style="text-align:center">
+  <apx-chart>
+  </apx-chart>
 </div>
 
 <div class="alert alert-danger"

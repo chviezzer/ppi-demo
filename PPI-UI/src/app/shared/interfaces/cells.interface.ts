@@ -1,10 +1,11 @@
-/* Defines the cell_selector entity */
+/** defines the cell_selector entity */
 export interface CellLine {
   id: number;
   name: string;
-  display_name: string;
-  depmap_id: number;
+  displayName: string;
+  depmapId?: number;
   cancerTypeId?: number;
   cancerType?: string;
+  geneIds: number[];
   searchKey?: string[];
 }

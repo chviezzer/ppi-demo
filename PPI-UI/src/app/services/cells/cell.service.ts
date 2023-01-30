@@ -15,9 +15,9 @@ import {
   tap,
   throwError,
 } from 'rxjs';
-import { CellLine } from 'src/app/views/cells/interfaces/cells.interface';
 import { CancerTypeService } from '../cancer-type/cancer-type.service';
 import { GeneSelectorService } from '../gene-selector/gene-selector.service';
+import { CellLine } from 'src/app/shared/interfaces/cells.interface';
 
 @Injectable({
   providedIn: 'root',
@@ -73,7 +73,8 @@ export class CellService {
   ]).pipe(
     map(([selectedCell, geneSelected]) =>
       geneSelected.filter((gene) => selectedCell?.geneIds?.includes(gene.id))
-    )
+    ),
+    shareReplay(1)
   );
 
   // selectedCellGenes$ = this.selectedCell$.pipe(

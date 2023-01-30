@@ -10,8 +10,8 @@ import {
   shareReplay,
   BehaviorSubject,
 } from 'rxjs';
-import { Protein } from 'src/app/views/proteins/interfaces/protein-info.interface';
 import { InteractionService } from './interaction.service';
+import { Protein } from 'src/app/shared/interfaces/protein-info.interface';
 
 @Injectable({
   providedIn: 'root',

@@ -1,4 +1,4 @@
-import { CancerType } from 'src/app/services/cancer-type/interfaces/cancer-type.interface';
+import { CancerType } from 'src/app/shared/interfaces/cancer-type.interface';
 
 export class CancerTypeData {
   static cancerType: CancerType[] = [

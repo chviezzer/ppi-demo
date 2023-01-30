@@ -1,5 +1,4 @@
-/* eslint-disable @angular-eslint/component-selector */
-import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { ChangeDetectionStrategy, Component, ViewChild } from '@angular/core';
 import { catchError, EMPTY, Subject } from 'rxjs';
 
 import { CellService } from '../../../services/cells/cell.service';

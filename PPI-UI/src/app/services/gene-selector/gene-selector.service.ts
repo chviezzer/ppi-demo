@@ -2,8 +2,8 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 
 import { throwError, Observable, shareReplay, tap, catchError } from 'rxjs';
-import { BarGeneChart } from 'src/app/views/cells/interfaces/gene-selector.interface';
-
+import { BarGeneChart } from 'src/app/shared/interfaces/gene-selector.interface';
+ 
 @Injectable({
   providedIn: 'root',
 })

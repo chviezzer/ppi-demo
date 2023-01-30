@@ -17,6 +17,11 @@
   </div>
 </div>
 
+<div *ngIf="onSelected" style="text-align:center">
+  <apx-chart>
+  </apx-chart>
+</div>
+
 <div class="alert alert-danger"
      *ngIf="errorMessage$ | async as errorMessage">
   {{ errorMessage }}

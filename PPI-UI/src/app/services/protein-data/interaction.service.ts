@@ -1,8 +1,8 @@
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { throwError, Observable, catchError, tap, shareReplay } from 'rxjs';
-import { ProteinsInteraction } from 'src/app/views/proteins/interfaces/protein-data.interface';
-
+import { ProteinsInteraction } from 'src/app/shared/interfaces/protein-data.interface';
+ 
 @Injectable({
   providedIn: 'root',
 })

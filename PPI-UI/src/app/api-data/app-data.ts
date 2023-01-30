@@ -1,16 +1,16 @@
 import { InMemoryDbService } from 'angular-in-memory-web-api';
 
-import { CancerType } from '../services/cancer-type/interfaces/cancer-type.interface';
+import { CancerType } from '../shared/interfaces/cancer-type.interface';
 import { CellSelectorData } from './cell/cells-data';
-import { CellLine } from '../views/cells/interfaces/cells.interface';
+import { CellLine } from '../shared/interfaces/cells.interface';
 import { CancerTypeData } from './cancer/cancer-type-data';
-import { BarGeneChart } from '../views/cells/interfaces/gene-selector.interface';
 import { GeneData } from './gene-selector/gene-data';
 import { ProteinInteraction } from './protein/protein-interaction';
 import { ProteinData } from './protein/protein';
-import { ProteinsInteraction } from '../views/proteins/interfaces/protein-data.interface';
-import { Protein } from '../views/proteins/interfaces/protein-info.interface';
-
+import { ProteinsInteraction } from '../shared/interfaces/protein-data.interface';
+import { Protein } from '../shared/interfaces/protein-info.interface';
+import { BarGeneChart } from '../shared/interfaces/gene-selector.interface';
+ 
 export class AppData implements InMemoryDbService {
   createDb(): {
     cells: CellLine[];

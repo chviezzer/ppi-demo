@@ -1,4 +1,4 @@
-import { CellLine } from '../../views/cells/interfaces/cells.interface';
+import { CellLine } from '../../shared/interfaces/cells.interface';
 
 export class CellSelectorData {
   static cells: CellLine[] = [

@@ -1,4 +1,4 @@
-import { Protein } from 'src/app/views/proteins/interfaces/protein-info.interface';
+import { Protein } from 'src/app/shared/interfaces/protein-info.interface';
 
 export class ProteinData {
   static protein: Protein[] = [

@@ -1,4 +1,4 @@
-import { ProteinsInteraction } from 'src/app/views/proteins/interfaces/protein-data.interface';
+import { ProteinsInteraction } from 'src/app/shared/interfaces/protein-data.interface';
 
 export class ProteinInteraction {
   static interaction: ProteinsInteraction[] = [
